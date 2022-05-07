@@ -1,0 +1,39 @@
+body{
+    background-size: cover;
+}
+.heading{
+    font-size: 23px;
+    color: aqua;
+    margin: 0px;
+    width: 100%;
+    box-shadow: 5px 5px 5px darkorange;
+}
+.note{
+    font-size: 15px;
+    color: red;
+}
+.playbutton{
+    font-size: 25px;
+    color: purple;
+    width: 100px;
+    letter-spacing: 2px;
+    box-shadow: 5px 5px 5px darkgreen;
+}
+canvas{
+    border: 5px red solid;
+    margin: 100px;
+}
+.peter{
+  float: left;
+  margin: 10px;
+}
+.harry{
+    float:right;
+    margin: 10px;
+}
+#ih{
+    width: 300px;
+}
+#ip{
+    width: 300px;
+}
