@@ -5,6 +5,7 @@ leftWristy = 0;
 rightWristx = 0;
 rightWristy = 0;
 ScoreLeftWrist = 0;
+ScoreRightWrist = 0;
 music_status = "";
 function preload(){
     harryp = loadSound("harry_potter_hedwig.mp3");
@@ -23,13 +24,20 @@ function draw(){
     image(video,0,0,600,500);
     fill(255,0,0);
     stroke(0,255,255);
-    music_status = peterp.isPlaying();
+    music_status1 = peterp.isPlaying();
+    music_status2 = harryp.isPlaying();
     if (ScoreLeftWrist > 0.2) {
         circle(leftWristx,leftWristy,10);
         harryp.stop();
-        if (music_status == false) {
+        if (music_status1 == false) {
             peterp.play()
         }
+    }
+    if (ScoreRightWrist > 0.2) {
+        circle(rightWristx,rightWristy,10);
+        peterp.stop();
+        if(music_status2 == false)
+           harryp.play();
     }
     
 
@@ -40,6 +48,7 @@ function modelLoaded(){
 function gotPoses(results){
     if (results.length > 0) {
         console.log(results);
+        ScoreRightWrist = results[0].pose.keypoints[10].score;
         ScoreLeftWrist = results[0].pose.keypoints[9].score;
         console.log("Score Left Wrist - "+ScoreLeftWrist);
         leftWristx = results[0].pose.leftWrist.x;
